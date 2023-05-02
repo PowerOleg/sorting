@@ -1,6 +1,8 @@
 package ru.oleg.services;
 
+import ru.oleg.models.Det;
 import ru.oleg.models.Item;
+import ru.oleg.models.Se;
 import ru.oleg.repositories.Database;
 
 import java.io.BufferedReader;
@@ -40,6 +42,33 @@ public class SortServiceImpl implements SortService {
 
     @Override
     public Item parse(String line) {
+        final String[] stringArray = line.split(" ");
+        final String[] numbersInString = stringArray[0].split("-");
+        int[] numbers = new int[numbersInString.length];
+        if (numbersInString.length != 3) {
+            System.out.println("Не корректный идентификатор изделия");
+        }
+        try {
+            for (int i = 0; i < numbersInString.length; i++) {
+                numbers[i] = Integer.parseInt(numbersInString[i]);
+            }
+        } catch (RuntimeException e) {
+            System.out.println("В идентификатор введена не цифра");
+            e.printStackTrace();
+        }
+
+        switch (stringArray[0]) {
+            case "SE":
+                return new Se(numbers[0], numbers[1], numbers[2]);
+
+            case "DET":
+                return new Det(numbers[0], numbers[1], numbers[2]);
+
+            default:
+                System.out.println("Тип изделия не определен");
+                break;
+        }
+
         return null;
     }
 

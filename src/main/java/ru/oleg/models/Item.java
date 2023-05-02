@@ -6,7 +6,7 @@ public abstract class Item {
     private final int number;
     private final String fullname;
 
-    public Item(int positionNumber, int systemNumber, int number, String fullname) {
+    public Item(int positionNumber, int systemNumber, int number) {
         this.positionNumber = positionNumber;
         this.systemNumber = systemNumber;
         this.number = number;
