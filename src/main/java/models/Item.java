@@ -1,6 +1,6 @@
 package models;
 
-public class Item {
+public abstract class Item {
     private final int positionNumber;
     private final int systemNumber;
     private final int number;
