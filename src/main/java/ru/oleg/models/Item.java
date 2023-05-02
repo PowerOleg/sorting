@@ -6,11 +6,12 @@ public abstract class Item {
     private final int number;
     private final String fullname;
 
-    public Item(int positionNumber, int systemNumber, int number) {
+    public Item(int positionNumber, int systemNumber, int number, String line) {
         this.positionNumber = positionNumber;
         this.systemNumber = systemNumber;
         this.number = number;
-        this.fullname = String.valueOf(positionNumber + systemNumber + number);
+        this.fullname = line;
+//        this.fullname = String.valueOf(positionNumber) + "-" + String.valueOf(systemNumber) + "-" + String.valueOf(number);
     }
 
     public int getPositionNumber() {

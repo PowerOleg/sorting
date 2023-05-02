@@ -26,7 +26,7 @@ public class SortServiceImpl implements SortService {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(textFile))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                if (!line.equals(" ") || !line.equals("\n")) {
+                if (line.length() > 4) {
                     items.add(parse(line));
                 }
             }
@@ -43,7 +43,7 @@ public class SortServiceImpl implements SortService {
     @Override
     public Item parse(String line) {
         final String[] stringArray = line.split(" ");
-        final String[] numbersInString = stringArray[0].split("-");
+        final String[] numbersInString = stringArray[1].split("-");
         int[] numbers = new int[numbersInString.length];
         if (numbersInString.length != 3) {
             System.out.println("Не корректный идентификатор изделия");
@@ -59,10 +59,10 @@ public class SortServiceImpl implements SortService {
 
         switch (stringArray[0]) {
             case "SE":
-                return new Se(numbers[0], numbers[1], numbers[2]);
+                return new Se(numbers[0], numbers[1], numbers[2], line);
 
             case "DET":
-                return new Det(numbers[0], numbers[1], numbers[2]);
+                return new Det(numbers[0], numbers[1], numbers[2], line);
 
             default:
                 System.out.println("Тип изделия не определен");
