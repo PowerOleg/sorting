@@ -12,7 +12,7 @@ public class Database {
     private Database() {
     }
 
-    public static synchronized Database get() {
+    public static synchronized Database getInstance() {
         if (instance == null) {
             instance = new Database();
         }

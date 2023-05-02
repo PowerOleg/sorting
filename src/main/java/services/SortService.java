@@ -1,8 +1,14 @@
 package services;
 
+import models.Item;
+
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 public interface SortService {
-    void readTxt();
-    void writeTxt();
+    Set<Item> getDataFromTxt(File textFile);
+    void writeTxt(File textFile);
     void parse();
-    void sort();
+    List<Item> sort();
 }
