@@ -1,8 +1,10 @@
 package ru.oleg.controllers;
 
+import ru.oleg.models.Item;
 import ru.oleg.services.SortService;
 
 import java.io.File;
+import java.util.Set;
 
 public class Controller {
     private SortService service;
@@ -12,7 +14,8 @@ public class Controller {
     }
 
     public void printItemsConsole(File textFile) {
-        System.out.println(service.getDataFromTxt(textFile));
+        final Set<Item> dataFromTxt = service.getDataFromTxt(textFile);
+        System.out.println(dataFromTxt);
     }
 
     public void writeItems() {
