@@ -1,4 +1,4 @@
-package models;
+package ru.oleg.models;
 
 public abstract class Item {
     private final int positionNumber;

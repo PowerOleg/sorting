@@ -1,16 +1,18 @@
-package controllers;
+package ru.oleg.controllers;
 
-import services.SortService;
+import ru.oleg.services.SortService;
 
-public class controller {
+import java.io.File;
+
+public class Controller {
     private SortService service;
 
-    public controller(SortService service) {
+    public Controller(SortService service) {
         this.service = service;
     }
 
-    public void printItems() {
-
+    public void printItemsConsole(File textFile) {
+        System.out.println(service.getDataFromTxt(textFile));
     }
 
     public void writeItems() {

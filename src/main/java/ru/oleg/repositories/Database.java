@@ -1,6 +1,6 @@
-package repositories;
+package ru.oleg.repositories;
 
-import models.Item;
+import ru.oleg.models.Item;
 
 import java.util.Set;
 

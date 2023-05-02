@@ -1,7 +1,7 @@
-package services;
+package ru.oleg.services;
 
-import models.Item;
-import repositories.Database;
+import ru.oleg.models.Item;
+import ru.oleg.repositories.Database;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,12 +36,11 @@ public class SortServiceImpl implements SortService {
 
     @Override
     public void writeTxt(File textFile) {
-
     }
 
     @Override
     public Item parse(String line) {
-
+        return null;
     }
 
     @Override
