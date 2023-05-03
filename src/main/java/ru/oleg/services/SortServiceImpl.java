@@ -43,13 +43,13 @@ public class SortServiceImpl implements SortService {
             case "STD":
                 final String[] numbersInString = stringArray[1].split("-");
                 if (numbersInString.length == 3) {
-                    return new Std(numbersInString[0], Integer.parseInt(numbersInString[1]), 0,
+                    return new Std(numbersInString[0], 0, Integer.parseInt(numbersInString[1]),
                             Integer.parseInt(numbersInString[2]), line);
                 }
 
                 if (numbersInString.length == 4) {
-                    return new Std(numbersInString[0], Integer.parseInt(numbersInString[1]),
-                            Integer.parseInt(numbersInString[2]), Integer.parseInt(numbersInString[3]), line);
+                    return new Std(numbersInString[0], Integer.parseInt(numbersInString[2]),
+                            Integer.parseInt(numbersInString[1]), Integer.parseInt(numbersInString[3]), line);
                 }
                 break;
 
@@ -80,17 +80,22 @@ public class SortServiceImpl implements SortService {
     }
 
     @Override
-    public List<Item> sort(Set<Item> items) {
-        Comparator<Item> itemComparator = new ItemComparator();
+    public Set<Item> sort(Set<Item> items) {
 //        Comparator<Item> itemComparator = new ItemComparator();
+////        Comparator<Std> stdComparator = new StdComparator();
 
 //        = new ArrayList<>(items);
 //        sortedItems.sort();
-        List<Item> sortedItems = items.stream().sorted(itemComparator)
-//                                                        .sorted()
-                .collect(Collectors.toList());
+//        List<Item> sortedItems = items.stream().sorted(itemComparator
+//                        .thenComparing(Item::getSystemNumber)
+//                        .thenComparing(Item::getPositionNumber)
+//                        .thenComparing(Item::getNumber))
 
-        return sortedItems;
+//                                                .collect(Collectors.toList());
+//        sortedItems.stream().sorted(stdComparator).collect(Collectors.toList());
+        Set<Item> sortedSet = new TreeSet<>(items);
+
+        return sortedSet;
     }
 
     @Override
@@ -107,18 +112,21 @@ class ItemComparator implements Comparator<Item> {
         return o1.getType().compareTo(o2.getType());
     }
 }
+//class StdComparator implements Comparator<Std> {
+//    @Override
+//    public int compare(Std o1, Std o2) {
+//        return o1.getPrefix().compareTo(o2.getPrefix());
+//    }
+//}
+
+
 //class PositionNumberComparator implements Comparator<Item> {
 //    @Override
 //    public int compare(Item o1, Item o2) {
 //        return 0;
 //    }
 //}
-//class SystemNumberComparator implements Comparator<Item> {
-//    @Override
-//    public int compare(Item o1, Item o2) {
-//        return 0;
-//    }
-//}
+
 //class NumberComparator implements Comparator<Item> {
 //    @Override
 //    public int compare(Item o1, Item o2) {

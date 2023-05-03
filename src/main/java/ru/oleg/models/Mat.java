@@ -1,5 +1,6 @@
 package ru.oleg.models;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Mat extends Item {
@@ -22,5 +23,18 @@ public class Mat extends Item {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), name);
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        return Comparator.comparing(Item::getType)
+                .thenComparing(value -> {
+                    return this.fullname.compareTo(o.getFullname());
+                })
+                .compare(this, o);
+    }
+
+    public String getName() {
+        return name;
     }
 }

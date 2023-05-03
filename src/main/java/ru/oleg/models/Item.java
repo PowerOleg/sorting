@@ -1,8 +1,9 @@
 package ru.oleg.models;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public abstract class Item {
+public abstract class Item implements Comparable<Item> {
     protected Integer type;
     protected final int positionNumber;
     protected final int systemNumber;
@@ -15,6 +16,15 @@ public abstract class Item {
         this.systemNumber = systemNumber;
         this.number = number;
         this.fullname = fullname;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        return Comparator.comparing(Item::getType)
+                .thenComparingInt(Item::getSystemNumber)
+                .thenComparingInt(Item::getPositionNumber)
+                .thenComparingInt(Item::getNumber)
+                .compare(this, o);
     }
 
     public Integer getType() {

@@ -1,5 +1,6 @@
 package ru.oleg.models;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Std extends Item {
@@ -27,5 +28,28 @@ public class Std extends Item {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), prefix);
+    }
+
+    public Comparator<? super Item> prefixCompare() {
+        return Comparator.comparing(item -> {
+            final String[] strings = item.getFullname().split(" ");
+            final String[] identificator = strings[1].split("-");
+            return identificator[0];
+        });
+    }
+
+    @Override
+    public int compareTo(Item o) {
+//        this.prefix.compareTo(((Std) o).getPrefix());
+//        final String[] strings = this.fullname.split(" ");
+//        final String[] identificator = strings[1].split("-");
+        return Comparator.comparing(Item::getType)
+                .thenComparing(prefixCompare())
+                .thenComparingInt(Item::getSystemNumber)
+                .thenComparingInt(Item::getPositionNumber)
+                .thenComparingInt(Item::getNumber)
+                .compare(this, o);
+
+
     }
 }

@@ -10,6 +10,6 @@ import java.util.Set;
 public interface SortService {
     Set<Item> getDataFromTxt(File textFile);
     Item parse(String line);
-    List<Item> sort(Set<Item> set);
+    Set<Item> sort(Set<Item> set);
     void print(Collection<Item> objects);
 }
