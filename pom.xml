@@ -6,8 +6,8 @@
 
     <groupId>ru.oleg</groupId>
     <artifactId>sorting</artifactId>
-    <version>2.4-SNAPSHOT</version>
-    
+    <version>2.5-SNAPSHOT</version>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
@@ -57,27 +57,6 @@
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
-                <!--                <plugin>-->
-                <!--                    <artifactId>maven-assembly-plugin</artifactId>-->
-                <!--                    <configuration>-->
-                <!--                        <descriptorRefs>-->
-                <!--                            <descriptorRef>jar-with-dependencies</descriptorRef>-->
-                <!--                        </descriptorRefs>-->
-                <!--                        <archive>-->
-                <!--                            <manifest>-->
-                <!--                                <mainClass>ch.frankel.blog.executablejar.ExecutableJarApplication</mainClass>-->
-                <!--                            </manifest>-->
-                <!--                        </archive>-->
-                <!--                    </configuration>-->
-                <!--                    <executions>-->
-                <!--                        <execution>-->
-                <!--                            <goals>-->
-                <!--                                <goal>single</goal>-->
-                <!--                            </goals>-->
-                <!--                            <phase>package</phase>-->
-                <!--                        </execution>-->
-                <!--                    </executions>-->
-                <!--                </plugin>-->
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
