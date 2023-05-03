@@ -16,13 +16,13 @@ public class Controller {
 
     public void printItemsConsole(File textFile) {
         final Set<Item> dataFromTxt = service.getDataFromTxt(textFile);
-        System.out.println(dataFromTxt);
+        service.print(dataFromTxt);
     }
 
     public void printSortedItemsConsole(File textFile) {
         Database database = Database.getInstance();
         database.setItems(service.getDataFromTxt(textFile));
-        System.out.println(service.sort(database.getItems()));
+        service.print(service.sort(database.getItems()));
     }
 
     public SortService getService() {

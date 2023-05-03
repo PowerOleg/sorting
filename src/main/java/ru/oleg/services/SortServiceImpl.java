@@ -9,17 +9,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class SortServiceImpl implements SortService {
-    private Database database;
-
-    public SortServiceImpl() {
-        this.database = Database.getInstance();
-    }
-
     @Override
     public Set<Item> getDataFromTxt(File textFile) {
         Set<Item> items = new HashSet<>();
@@ -34,10 +27,6 @@ public class SortServiceImpl implements SortService {
             e.printStackTrace();
         }
         return items;
-    }
-
-    @Override
-    public void writeTxt(File textFile) {
     }
 
     @Override
@@ -73,15 +62,40 @@ public class SortServiceImpl implements SortService {
     }
 
     @Override
-    public List<Item> sort(Set<Item> set) {
-        return null;
+    public List<Item> sort(Set<Item> items) {
+        Comparator<Item> itemComparator = new ItemComparator();
+        return items.stream().sorted(itemComparator).collect(Collectors.toList());
     }
 
-    public Database getDatabase() {
-        return database;
-    }
-
-    public void setDatabase(Database database) {
-        this.database = database;
+    @Override
+    public void print(Collection<Item> objects) {
+        for (Object o : objects) {
+            System.out.println(o);
+        }
     }
 }
+
+class ItemComparator implements Comparator<Item> {
+    @Override
+    public int compare(Item o1, Item o2) {
+        return o1.getFullname().compareTo(o2.getFullname());
+    }
+}
+//class PositionNumberComparator implements Comparator<Item> {
+//    @Override
+//    public int compare(Item o1, Item o2) {
+//        return 0;
+//    }
+//}
+//class SystemNumberComparator implements Comparator<Item> {
+//    @Override
+//    public int compare(Item o1, Item o2) {
+//        return 0;
+//    }
+//}
+//class NumberComparator implements Comparator<Item> {
+//    @Override
+//    public int compare(Item o1, Item o2) {
+//        return 0;
+//    }
+//}
