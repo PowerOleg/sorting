@@ -48,10 +48,10 @@ public class SortServiceImpl implements SortService {
 
         switch (stringArray[0]) {
             case "SE":
-                return new Se(stringArray[0], numbers[0], numbers[1], numbers[2], line);
+                return new Se(numbers[0], numbers[1], numbers[2], line);
 
             case "DET":
-                return new Det(stringArray[0], numbers[0], numbers[1], numbers[2], line);
+                return new Det(numbers[0], numbers[1], numbers[2], line);
 
             default:
                 System.out.println("Тип изделия не определен");
@@ -64,7 +64,15 @@ public class SortServiceImpl implements SortService {
     @Override
     public List<Item> sort(Set<Item> items) {
         Comparator<Item> itemComparator = new ItemComparator();
-        return items.stream().sorted(itemComparator).collect(Collectors.toList());
+//        Comparator<Item> itemComparator = new ItemComparator();
+
+//        = new ArrayList<>(items);
+//        sortedItems.sort();
+                List<Item> sortedItems = items.stream().sorted(itemComparator)
+//                                                        .sorted()
+                                                        .collect(Collectors.toList());
+
+        return sortedItems;
     }
 
     @Override
