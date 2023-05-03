@@ -9,6 +9,7 @@ import java.util.Set;
 
 public class Controller {
     private SortService service;
+
     public Controller(SortService service) {
         this.service = service;
     }

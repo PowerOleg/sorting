@@ -6,8 +6,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
-
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class SortServiceImpl implements SortService {
     @Override
@@ -58,8 +60,8 @@ public class SortServiceImpl implements SortService {
                     return new Mat(line, null);
                 }
                 if (stringArray.length > 2) {
-                    int index = line.indexOf(" ", line.indexOf(" ")+1);
-                    return new Mat(line, line.substring(index+1));
+                    int index = line.indexOf(" ", line.indexOf(" ") + 1);
+                    return new Mat(line, line.substring(index + 1));
                 }
                 return new Mat(line, null);
 
@@ -88,21 +90,7 @@ public class SortServiceImpl implements SortService {
 
     @Override
     public Set<Item> sort(Set<Item> items) {
-//        Comparator<Item> itemComparator = new ItemComparator();
-////        Comparator<Std> stdComparator = new StdComparator();
-
-//        = new ArrayList<>(items);
-//        sortedItems.sort();
-//        List<Item> sortedItems = items.stream().sorted(itemComparator
-//                        .thenComparing(Item::getSystemNumber)
-//                        .thenComparing(Item::getPositionNumber)
-//                        .thenComparing(Item::getNumber))
-
-//                                                .collect(Collectors.toList());
-//        sortedItems.stream().sorted(stdComparator).collect(Collectors.toList());
-        Set<Item> sortedSet = new TreeSet<>(items);
-
-        return sortedSet;
+        return new TreeSet<>(items);
     }
 
     @Override
@@ -113,30 +101,3 @@ public class SortServiceImpl implements SortService {
     }
 }
 
-class ItemComparator implements Comparator<Item> {
-    @Override
-    public int compare(Item o1, Item o2) {
-        return o1.getType().compareTo(o2.getType());
-    }
-}
-//class StdComparator implements Comparator<Std> {
-//    @Override
-//    public int compare(Std o1, Std o2) {
-//        return o1.getPrefix().compareTo(o2.getPrefix());
-//    }
-//}
-
-
-//class PositionNumberComparator implements Comparator<Item> {
-//    @Override
-//    public int compare(Item o1, Item o2) {
-//        return 0;
-//    }
-//}
-
-//class NumberComparator implements Comparator<Item> {
-//    @Override
-//    public int compare(Item o1, Item o2) {
-//        return 0;
-//    }
-//}

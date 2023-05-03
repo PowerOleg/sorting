@@ -46,7 +46,5 @@ public class Std extends Item {
                 .thenComparingInt(Item::getPositionNumber)
                 .thenComparingInt(Item::getNumber)
                 .compare(this, o);
-
-
     }
 }
