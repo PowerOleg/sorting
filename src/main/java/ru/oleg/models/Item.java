@@ -3,17 +3,22 @@ package ru.oleg.models;
 import java.util.Objects;
 
 public abstract class Item {
+    private final String type;
     private final int positionNumber;
     private final int systemNumber;
     private final int number;
     private final String fullname;
 
-    public Item(int positionNumber, int systemNumber, int number, String line) {
+    public Item(String type, int positionNumber, int systemNumber, int number, String line) {
+        this.type = type;
         this.positionNumber = positionNumber;
         this.systemNumber = systemNumber;
         this.number = number;
         this.fullname = line;
-//        this.fullname = String.valueOf(positionNumber) + "-" + String.valueOf(systemNumber) + "-" + String.valueOf(number);
+    }
+
+    public String getType() {
+        return type;
     }
 
     public int getPositionNumber() {

@@ -48,10 +48,10 @@ public class SortServiceImpl implements SortService {
 
         switch (stringArray[0]) {
             case "SE":
-                return new Se(numbers[0], numbers[1], numbers[2], line);
+                return new Se(stringArray[0], numbers[0], numbers[1], numbers[2], line);
 
             case "DET":
-                return new Det(numbers[0], numbers[1], numbers[2], line);
+                return new Det(stringArray[0], numbers[0], numbers[1], numbers[2], line);
 
             default:
                 System.out.println("Тип изделия не определен");
@@ -78,7 +78,7 @@ public class SortServiceImpl implements SortService {
 class ItemComparator implements Comparator<Item> {
     @Override
     public int compare(Item o1, Item o2) {
-        return o1.getFullname().compareTo(o2.getFullname());
+        return o1.getType().compareTo(o2.getType());
     }
 }
 //class PositionNumberComparator implements Comparator<Item> {
