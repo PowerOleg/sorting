@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 public class SortServiceImpl implements SortService {
     @Override
@@ -54,7 +54,14 @@ public class SortServiceImpl implements SortService {
                 break;
 
             case "MAT":
-                return new Mat(line, stringArray[1]);
+                if (stringArray.length == 2) {
+                    return new Mat(line, null);
+                }
+                if (stringArray.length > 2) {
+                    int index = line.indexOf(" ", line.indexOf(" ")+1);
+                    return new Mat(line, line.substring(index+1));
+                }
+                return new Mat(line, null);
 
             default:
                 System.out.println("Тип изделия не определен");

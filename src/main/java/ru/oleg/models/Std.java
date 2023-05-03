@@ -40,9 +40,6 @@ public class Std extends Item {
 
     @Override
     public int compareTo(Item o) {
-//        this.prefix.compareTo(((Std) o).getPrefix());
-//        final String[] strings = this.fullname.split(" ");
-//        final String[] identificator = strings[1].split("-");
         return Comparator.comparing(Item::getType)
                 .thenComparing(prefixCompare())
                 .thenComparingInt(Item::getSystemNumber)

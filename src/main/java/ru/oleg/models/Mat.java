@@ -17,7 +17,7 @@ public class Mat extends Item {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Mat mat = (Mat) o;
-        return name.equals(mat.name);
+        return Objects.equals(name, mat.name);
     }
 
     @Override
@@ -25,14 +25,14 @@ public class Mat extends Item {
         return Objects.hash(super.hashCode(), name);
     }
 
+
     @Override
     public int compareTo(Item o) {
         return Comparator.comparing(Item::getType)
-                .thenComparing(value -> {
-                    return this.fullname.compareTo(o.getFullname());
-                })
+                .thenComparing(Item::getFullname)
                 .compare(this, o);
     }
+
 
     public String getName() {
         return name;
