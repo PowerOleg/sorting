@@ -1,14 +1,15 @@
 package ru.oleg.controllers;
 
 import ru.oleg.models.Item;
+import ru.oleg.repositories.Database;
 import ru.oleg.services.SortService;
 
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 public class Controller {
     private SortService service;
-
     public Controller(SortService service) {
         this.service = service;
     }
@@ -18,12 +19,10 @@ public class Controller {
         System.out.println(dataFromTxt);
     }
 
-    public void writeItems() {
-
-    }
-
-    public void writeSortedItems() {
-
+    public void printSortedItemsConsole(File textFile) {
+        Database database = Database.getInstance();
+        database.setItems(service.getDataFromTxt(textFile));
+        System.out.println(service.sort(database.getItems()));
     }
 
     public SortService getService() {

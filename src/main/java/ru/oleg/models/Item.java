@@ -1,5 +1,7 @@
 package ru.oleg.models;
 
+import java.util.Objects;
+
 public abstract class Item {
     private final int positionNumber;
     private final int systemNumber;
@@ -33,5 +35,18 @@ public abstract class Item {
     @Override
     public String toString() {
         return fullname;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return positionNumber == item.positionNumber && systemNumber == item.systemNumber && number == item.number;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(positionNumber, systemNumber, number);
     }
 }

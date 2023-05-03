@@ -73,7 +73,7 @@ public class SortServiceImpl implements SortService {
     }
 
     @Override
-    public List<Item> sort() {
+    public List<Item> sort(Set<Item> set) {
         return null;
     }
 

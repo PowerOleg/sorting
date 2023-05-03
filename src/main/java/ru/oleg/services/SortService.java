@@ -10,5 +10,5 @@ public interface SortService {
     Set<Item> getDataFromTxt(File textFile);
     void writeTxt(File textFile);
     Item parse(String line);
-    List<Item> sort();
+    List<Item> sort(Set<Item> set);
 }

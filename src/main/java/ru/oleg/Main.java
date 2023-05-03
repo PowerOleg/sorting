@@ -7,12 +7,11 @@ import ru.oleg.services.SortServiceImpl;
 import java.io.File;
 
 public class Main {
-
-    public static final String FILE_PATH = "./target/classes/ru/oleg/examples/example.txt";
+    public static final String FILE_PATH = "src/main/java/ru/oleg/examples/example.txt";
     public static void main(String[] args) {
         File inputFile = new File(FILE_PATH);
         SortService service = new SortServiceImpl();
         Controller controller = new Controller(service);
-        controller.printItemsConsole(inputFile);
+        controller.printSortedItemsConsole(inputFile);
     }
 }
