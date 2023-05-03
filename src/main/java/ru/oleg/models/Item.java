@@ -47,11 +47,11 @@ public abstract class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return positionNumber == item.positionNumber && systemNumber == item.systemNumber && number == item.number;
+        return positionNumber == item.positionNumber && systemNumber == item.systemNumber && number == item.number && type.equals(item.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(positionNumber, systemNumber, number);
+        return Objects.hash(type, positionNumber, systemNumber, number);
     }
 }

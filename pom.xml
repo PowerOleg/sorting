@@ -6,13 +6,12 @@
 
     <groupId>ru.oleg</groupId>
     <artifactId>sorting</artifactId>
-    <version>2.5-SNAPSHOT</version>
+    <version>2.6-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <project.build.directory>C:\1\java\sorting</project.build.directory>
     </properties>
 
     <dependencies>

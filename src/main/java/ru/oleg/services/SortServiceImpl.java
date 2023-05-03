@@ -1,9 +1,6 @@
 package ru.oleg.services;
 
-import ru.oleg.models.Det;
-import ru.oleg.models.Item;
-import ru.oleg.models.Se;
-import ru.oleg.repositories.Database;
+import ru.oleg.models.*;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,33 +29,54 @@ public class SortServiceImpl implements SortService {
     @Override
     public Item parse(String line) {
         final String[] stringArray = line.split(" ");
-        final String[] numbersInString = stringArray[1].split("-");
+
+        int[] numbers = null;
+        switch (stringArray[0]) {
+            case "SE":
+                numbers = parseIdentificator(stringArray[1]);
+                return new Se(numbers[0], numbers[1], numbers[2], line);
+
+            case "DET":
+                numbers = parseIdentificator(stringArray[1]);
+                return new Det(numbers[0], numbers[1], numbers[2], line);
+
+            case "STD":
+                final String[] numbersInString = stringArray[1].split("-");
+                if (numbersInString.length == 3) {
+                    return new Std(numbersInString[0], Integer.parseInt(numbersInString[1]), 0,
+                            Integer.parseInt(numbersInString[2]), line);
+                }
+
+                if (numbersInString.length == 4) {
+                    return new Std(numbersInString[0], Integer.parseInt(numbersInString[1]),
+                            Integer.parseInt(numbersInString[2]), Integer.parseInt(numbersInString[3]), line);
+                }
+                break;
+
+            case "MAT":
+                return new Mat(line, stringArray[1]);
+
+            default:
+                System.out.println("Тип изделия не определен");
+                break;
+        }
+        return null;
+    }
+
+    public int[] parseIdentificator(String identificator) {
+        final String[] numbersInString = identificator.split("-");
         int[] numbers = new int[numbersInString.length];
         if (numbersInString.length != 3) {
-            System.out.println("Не корректный идентификатор изделия");
+            throw new RuntimeException("Не корректный идентификатор изделия");
         }
         try {
             for (int i = 0; i < numbersInString.length; i++) {
                 numbers[i] = Integer.parseInt(numbersInString[i]);
             }
         } catch (RuntimeException e) {
-            System.out.println("В идентификатор введена не цифра");
-            e.printStackTrace();
+            throw new RuntimeException("В идентификатор введена не цифра");
         }
-
-        switch (stringArray[0]) {
-            case "SE":
-                return new Se(numbers[0], numbers[1], numbers[2], line);
-
-            case "DET":
-                return new Det(numbers[0], numbers[1], numbers[2], line);
-
-            default:
-                System.out.println("Тип изделия не определен");
-                break;
-        }
-
-        return null;
+        return numbers;
     }
 
     @Override
@@ -68,9 +86,9 @@ public class SortServiceImpl implements SortService {
 
 //        = new ArrayList<>(items);
 //        sortedItems.sort();
-                List<Item> sortedItems = items.stream().sorted(itemComparator)
+        List<Item> sortedItems = items.stream().sorted(itemComparator)
 //                                                        .sorted()
-                                                        .collect(Collectors.toList());
+                .collect(Collectors.toList());
 
         return sortedItems;
     }
