@@ -39,19 +39,12 @@
             <version>4.10.0</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <version>3.5.0</version>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>net.sf.opencsv</groupId>-->
-        <!--            <artifactId>opencsv</artifactId>-->
-        <!--            <version>2.3</version>-->
-        <!--        </dependency>-->
     </dependencies>
-
 
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -75,7 +68,6 @@
                         </execution>
                     </executions>
                 </plugin>
-
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -92,8 +84,6 @@
                         </archive>
                     </configuration>
                 </plugin>
-
-
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.1.0</version>
@@ -112,7 +102,6 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M3</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-install-plugin</artifactId>
                     <version>2.5.2</version>
@@ -130,7 +119,6 @@
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
-
             </plugins>
         </pluginManagement>
         <plugins>
