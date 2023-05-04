@@ -6,7 +6,7 @@
 
     <groupId>ru.oleg</groupId>
     <artifactId>sorting</artifactId>
-    <version>3.4-SNAPSHOT</version>
+    <version>3.5-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

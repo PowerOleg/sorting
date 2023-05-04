@@ -22,8 +22,9 @@ public class Database {
         return items;
     }
 
-    public void setItems(Set<Item> items) {
+    public boolean setItems(Set<Item> items) {
         Database.items = items;
+        return true;
     }
 
     public Item getItemByName(Item item) {
