@@ -14,11 +14,13 @@ public class Mat extends Item {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        boolean flag = false;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Mat mat = (Mat) o;
-        return Objects.equals(name, mat.name);
+        if (name.equals(mat.name)) flag = true;
+        if (fullname.equals(mat.getFullname())) flag = true;
+        return flag;
     }
 
     @Override

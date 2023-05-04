@@ -22,19 +22,14 @@ public class SortServiceImplTest {
     @Test
     public void test_get_data_from_txt_positive() {
         final int numberOfElementsInTxt = 2;
-//        Set<Item> expected = new HashSet<>();
         Object[] expected = new Object[numberOfElementsInTxt];
         final Se se = new Se(160, 5, 802, "SE 160-05-802");
         final Mat mat = new Mat("MAT Ацетон ГОСТ 18675", "Ацетон ГОСТ 18675");
         expected[0] = mat;
         expected[1] = se;
-//        expected.add(se);
-//        expected.add(mat);
 
         final Set<Item> result = service.getDataFromTxt(new File("src/main/resources/test.txt"));
         final Object[] resultArray = result.toArray();
-        for (int i = 0; i < numberOfElementsInTxt; i++) {
-            Assertions.assertEquals(expected[i], resultArray[i]);
-        }
+            Assertions.assertArrayEquals(expected, resultArray);
     }
 }
