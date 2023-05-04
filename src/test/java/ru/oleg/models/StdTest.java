@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class StdTest {
 
     @Test
-    public void test_se_constructor_and_getters_positive() {
+    public void test_std_constructor_and_getters_positive() {
         final int expectedType = 3;
         final String expectedPrefix = "C03";
         final int expectedRegistration = 55;

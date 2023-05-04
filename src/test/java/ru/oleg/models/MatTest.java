@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class MatTest {
 
     @Test
-    public void test_se_constructor_and_getters_positive() {
+    public void test_mat_constructor_and_getters_positive() {
         final int expectedType = 4;
         final String expectedFullname = "MAT Ацетон ГОСТ 18675";
         final String expectedName = "Ацетон ГОСТ 18675";
