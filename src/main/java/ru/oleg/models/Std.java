@@ -18,11 +18,17 @@ public class Std extends Item {
 
     @Override
     public boolean equals(Object o) {
+        boolean flag = false;
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Std std = (Std) o;
-        return prefix.equals(std.prefix);
+        if (prefix.equals(std.getPrefix()) &&
+        positionNumber == std.getPositionNumber() &&
+        systemNumber == std.getSystemNumber() &&
+        number == std.getNumber()
+        ) {
+            flag = true;
+        }
+            return flag;
     }
 
     @Override
