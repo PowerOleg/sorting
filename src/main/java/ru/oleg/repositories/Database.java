@@ -8,6 +8,7 @@ import java.util.Set;
 public class Database {
     private static Database instance = null;
     private static Set<Item> items = null;
+
     private Database() {
     }
 

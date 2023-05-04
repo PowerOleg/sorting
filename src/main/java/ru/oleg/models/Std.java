@@ -22,13 +22,13 @@ public class Std extends Item {
         if (this == o) return true;
         Std std = (Std) o;
         if (prefix.equals(std.getPrefix()) &&
-        positionNumber == std.getPositionNumber() &&
-        systemNumber == std.getSystemNumber() &&
-        number == std.getNumber()
+                positionNumber == std.getPositionNumber() &&
+                systemNumber == std.getSystemNumber() &&
+                number == std.getNumber()
         ) {
             flag = true;
         }
-            return flag;
+        return flag;
     }
 
     @Override

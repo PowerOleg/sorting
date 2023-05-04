@@ -58,8 +58,8 @@ public class SortServiceImplTest {
         final int numberOfElementsInTxt = 2;
         Object[] expected = new Object[numberOfElementsInTxt];
         final Se se = new Se(160, 5, 802, "SE 160-05-802");
-        final Mat mat = new Mat("MAT Ацетон ГОСТ 18675", "Ацетон ГОСТ 18675");
-        expected[0] = mat;
+        final Std std = new Std("C03", 0, 711, 200, "STD C03-711-200");
+        expected[0] = std;
         expected[1] = se;
 
         final Set<Item> result = service.getDataFromTxt(new File(pathTestTxt));

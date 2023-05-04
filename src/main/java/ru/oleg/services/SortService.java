@@ -8,7 +8,10 @@ import java.util.Set;
 
 public interface SortService {
     Set<Item> getDataFromTxt(File textFile);
+
     Item parse(String line);
+
     Set<Item> sort(Set<Item> set);
+
     void print(Collection<Item> objects);
 }

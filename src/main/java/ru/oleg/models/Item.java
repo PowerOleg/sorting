@@ -4,11 +4,11 @@ import java.util.Comparator;
 import java.util.Objects;
 
 public abstract class Item implements Comparable<Item> {
-    protected Integer type;
     protected final int positionNumber;
     protected final int systemNumber;
     protected final int number;
     protected final String fullname;
+    protected Integer type;
 
     public Item(int positionNumber, int systemNumber, int number, String fullname) {
         this.type = null;
