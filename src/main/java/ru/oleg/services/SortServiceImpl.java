@@ -56,6 +56,10 @@ public class SortServiceImpl implements SortService {
                 break;
 
             case "MAT":
+                if (line.length() > 128) {
+                    System.out.println("Длинна не может быть больше 128 символов");
+                    return null;
+                }
                 if (stringArray.length == 2) {
                     return new Mat(line, null);
                 }
