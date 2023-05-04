@@ -7,17 +7,19 @@ public class StdTest {
 
     @Test
     public void test_se_constructor_and_getters_positive() {
-        final int expectedType = 1;
-        final int expectedPosition = 100;
-        final int expectedSystem = 100;
-        final int expectedNumber = 100;
-        final String expectedFullname = "SE 100-20-700";
-        final Se se = new Se(expectedPosition, expectedSystem, expectedNumber, expectedFullname);
+        final int expectedType = 3;
+        final String expectedPrefix = "C03";
+        final int expectedRegistration = 55;
+        final int expectedRevision = 2;
+        final int expectedSize = 200;
+        final String expectedFullname = "STD C03-055-02-200";
+        final Std std = new Std(expectedPrefix, expectedRevision, expectedRegistration, expectedSize, expectedFullname);
 
-        Assertions.assertEquals(expectedPosition, se.getPositionNumber());
-        Assertions.assertEquals(expectedSystem, se.getSystemNumber());
-        Assertions.assertEquals(expectedNumber, se.getNumber());
-        Assertions.assertEquals(expectedType, se.getType());
-        Assertions.assertEquals(expectedFullname, se.getFullname());
+        Assertions.assertEquals(expectedRevision, std.getPositionNumber());
+        Assertions.assertEquals(expectedRegistration, std.getSystemNumber());
+        Assertions.assertEquals(expectedSize, std.getNumber());
+        Assertions.assertEquals(expectedType, std.getType());
+        Assertions.assertEquals(expectedPrefix, std.getPrefix());
+        Assertions.assertEquals(expectedFullname, std.getFullname());
     }
 }
