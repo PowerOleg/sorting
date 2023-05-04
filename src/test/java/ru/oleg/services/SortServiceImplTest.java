@@ -11,6 +11,7 @@ import java.util.Set;
 
 public class SortServiceImplTest {
     SortServiceImpl service;
+    final String pathTestTxt = "src/main/resources/test.txt";
 
     @BeforeEach
     public void initialization() {
@@ -61,7 +62,7 @@ public class SortServiceImplTest {
         expected[0] = mat;
         expected[1] = se;
 
-        final Set<Item> result = service.getDataFromTxt(new File("src/main/resources/test.txt"));
+        final Set<Item> result = service.getDataFromTxt(new File(pathTestTxt));
         final Object[] resultArray = result.toArray();
             Assertions.assertArrayEquals(expected, resultArray);
     }
@@ -83,7 +84,6 @@ public class SortServiceImplTest {
         expected[11] = new Mat("MAT Ацетон ГОСТ 18675", "Ацетон ГОСТ 18675");
         expected[12] = new Mat("MAT Ацетон ГОСТ 19675", "Ацетон ГОСТ 19675");
         expected[13] = new Mat("MAT Рукав", "Рукав");
-
 
         Set<Item> argument = new HashSet<>();
         for (int i = numberOfElements-1; i >= 0; i--) {
